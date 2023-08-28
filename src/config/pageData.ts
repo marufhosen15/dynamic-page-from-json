@@ -17,9 +17,13 @@ export const pageData = {
     gap: "20px",
     padding: "20px",
     border: "1px solid #ccc",
+    "@media (max-width: 768px)": {
+      flexDirection: "column",
+    },
   },
   components: [
     {
+      id: "box-1",
       type: "div",
       content: "This is a dynamic div component, what I rendered from JSON 01",
       style: {
@@ -42,6 +46,7 @@ export const pageData = {
       },
       components: [
         {
+          id: "box-1",
           type: "img",
           src: "https://images.unsplash.com/photo-1692976746345-175dd589f37a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
           style: {
@@ -51,6 +56,7 @@ export const pageData = {
           },
         },
         {
+          id: "box-2",
           type: "div",
           style: {
             display: "flex",
@@ -60,9 +66,14 @@ export const pageData = {
           },
           components: [
             {
+              id: "box-1",
               type: "div",
               style: {
                 width: "50%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                gap: "10px",
               },
               components: [
                 {
@@ -78,14 +89,28 @@ export const pageData = {
                   content:
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
                   style: {
-                    color: "gray",
+                    color: "black",
                     fontSize: "14px",
-                    fontWeight: "normal",
+                    fontWeight: "bold",
+                  },
+                },
+                {
+                  id: "box-3",
+                  type: "button",
+                  content: "Buy Now",
+                  action: handleAction,
+                  style: {
+                    backgroundColor: "purple",
+                    color: "white",
+                    padding: "8px 16px",
+                    borderRadius: "5px",
+                    width: "150px",
                   },
                 },
               ],
             },
             {
+              id: "box-2",
               type: "div",
               content: `Price: $${1000}`,
               style: {
@@ -94,20 +119,10 @@ export const pageData = {
             },
           ],
         },
-        {
-          type: "button",
-          content: "Buy Now",
-          action: handleAction,
-          style: {
-            backgroundColor: "purple",
-            color: "white",
-            padding: "8px 16px",
-            borderRadius: "5px",
-          },
-        },
       ],
     },
     {
+      id: "box-2",
       type: "div",
       content: "This is a dynamic div component, what I rendered from JSON 02",
       style: {
@@ -118,7 +133,34 @@ export const pageData = {
         width: "50%",
         margin: "0 auto",
         textAlign: "center",
+        display: "flex",
+        flexDirection: "row",
+        gap: "20px",
       },
+      components: [
+        {
+          id: "box-1",
+          type: "span",
+          content:
+            "This is a dynamic span component, what I rendered from JSON 01",
+          style: {
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            padding: "20px",
+          },
+        },
+        {
+          id: "box-2",
+          type: "span",
+          content:
+            "This is a dynamic span component, what I rendered from JSON 02",
+          style: {
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            padding: "20px",
+          },
+        },
+      ],
     },
   ],
 };

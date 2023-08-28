@@ -3,9 +3,14 @@
 import React from "react";
 import { pageData } from "@/config/pageData";
 import { ComponentData, DynamicPageData } from "@/type/type";
+import { usePathname, useRouter } from "next/navigation";
 
 const App = () => {
-  const { components, style } = pageData;
+  const pathname = usePathname();
+
+  console.log(pathname);
+
+  const { components, style }: { components: any; style: any } = pageData;
   return <DynamicPage components={components} style={style} />;
 };
 
@@ -32,6 +37,14 @@ const DynamicComponent = ({
   src,
   action,
 }: ComponentData) => {
+  const router = useRouter();
+
+  const handleActionClick = () => {
+    if (action) {
+      action(router);
+    }
+  };
+
   // If the component has children, render the DynamicPage component
   if (components) {
     return <DynamicPage components={components} style={style} />;
@@ -43,7 +56,7 @@ const DynamicComponent = ({
       return <Tag style={style} src={src} />;
     case "button":
       return (
-        <Tag style={style} onClick={action}>
+        <Tag router={router} style={style} onClick={handleActionClick}>
           {content}
         </Tag>
       );
