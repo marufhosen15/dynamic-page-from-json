@@ -11,6 +11,7 @@ export interface ComponentData {
 
 export interface DynamicPageData {
   components: ComponentData[];
-  style?: React.CSSProperties;
+  style: React.CSSProperties;
   index?: number;
+  type: any;
 }

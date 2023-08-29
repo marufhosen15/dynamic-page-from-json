@@ -7,50 +7,46 @@ import { usePathname, useRouter } from "next/navigation";
 
 const App = () => {
   const pathname = usePathname();
-
-  console.log(pathname);
-
-  const { components, style }: { components: any; style: any } = pageData;
-  return <DynamicPage components={components} style={style} />;
+  const {
+    components,
+    style,
+    type,
+  }: { components: any; style: React.CSSProperties; type: any } = pageData;
+  return (
+    <div>
+      <DynamicPage components={components} style={style} type={type} />
+    </div>
+  );
 };
 
 export default App;
 
 // This component will render the correct component based on the components array
 
-const DynamicPage = ({ components, style }: DynamicPageData) => {
+const DynamicPage = ({ type: Tag, components, style }: DynamicPageData) => {
   return (
-    <div style={style}>
+    <Tag style={style}>
       {components.map((component, index) => {
         return <DynamicComponent key={index} {...component} />;
       })}
-    </div>
+    </Tag>
   );
 };
 
 // This component will render the correct component based on the tag
-const DynamicComponent = ({
-  type: Tag,
-  content,
-  style,
-  components,
-  src,
-  action,
-}: ComponentData) => {
+const DynamicComponent = (props: ComponentData) => {
   const router = useRouter();
-
+  const { type: Tag, content, style, components, src, action } = props;
   const handleActionClick = () => {
     if (action) {
       action(router);
     }
   };
-
   // If the component has children, render the DynamicPage component
   if (components) {
-    return <DynamicPage components={components} style={style} />;
+    return <DynamicPage components={components} style={style} type={Tag} />;
   }
 
-  // Return the component with the correct tag
   switch (Tag) {
     case "img":
       return <Tag style={style} src={src} />;
