@@ -1,4 +1,5 @@
 import { handleAction } from "./actions/actions";
+import TestComponent from "../components/TestComponent";
 
 // pageData.json
 export const pageData = {
@@ -15,7 +16,7 @@ export const pageData = {
     display: "flex",
     gap: "20px",
     padding: "20px",
-    border: "1px solid #ccc",
+    // border: "1px solid #ccc",
   },
   components: [
     {
@@ -28,21 +29,21 @@ export const pageData = {
         padding: "10px",
         width: "50%",
         margin: "0 auto",
-        // backgroundImage:
-        //   "url(" +
-        //   "https://images.unsplash.com/photo-1692890846581-da1a95435f34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80" +
-        //   ")",
+        backgroundImage:
+          "url(" +
+          "https://images.unsplash.com/photo-1692890846581-da1a95435f34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80" +
+          ")",
 
-        // backgroundPosition: "center",
-        // backgroundSize: "cover",
-        // backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
         height: "auto",
       },
       components: [
         {
           id: "box-1",
           type: "img",
-          src: "https://images.unsplash.com/photo-1692976746345-175dd589f37a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+          src: "https://images.unsplash.com/photo-1692890846581-da1a95435f34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80",
           style: {
             width: "100%",
             height: "50%",
@@ -71,7 +72,7 @@ export const pageData = {
               },
               components: [
                 {
-                  type: "h1",
+                  type: TestComponent,
                   content: "Card Title 01",
                   style: {
                     color: "purple",
@@ -168,46 +169,47 @@ export const pageData = {
         },
       ],
     },
-    // {
-    //   id: "box-2",
-    //   type: "div",
-    //   content: "This is a dynamic div component, what I rendered from JSON 02",
-    //   style: {
-    //     backgroundColor: "#f0f0f0",
-    //     fontSize: "18px",
-    //     border: "1px solid #ccc",
-    //     padding: "10px",
-    //     width: "50%",
-    //     margin: "0 auto",
-    //     textAlign: "center",
-    //     display: "flex",
-    //     flexDirection: "row",
-    //     gap: "20px",
-    //   },
-    //   components: [
-    //     {
-    //       id: "box-1",
-    //       type: "span",
-    //       content:
-    //         "This is a dynamic span component, what I rendered from JSON 01",
-    //       style: {
-    //         border: "1px solid #ccc",
-    //         borderRadius: "5px",
-    //         padding: "20px",
-    //       },
-    //     },
-    //     {
-    //       id: "box-2",
-    //       type: "span",
-    //       content:
-    //         "This is a dynamic span component, what I rendered from JSON 02",
-    //       style: {
-    //         border: "1px solid #ccc",
-    //         borderRadius: "5px",
-    //         padding: "20px",
-    //       },
-    //     },
-    //   ],
-    // },
   ],
 };
+
+// {
+//   id: "box-2",
+//   type: "div",
+//   content: "This is a dynamic div component, what I rendered from JSON 02",
+//   style: {
+//     backgroundColor: "#f0f0f0",
+//     fontSize: "18px",
+//     border: "1px solid #ccc",
+//     padding: "10px",
+//     width: "50%",
+//     margin: "0 auto",
+//     textAlign: "center",
+//     display: "flex",
+//     flexDirection: "row",
+//     gap: "20px",
+//   },
+//   components: [
+//     {
+//       id: "box-1",
+//       type: "span",
+//       content:
+//         "This is a dynamic span component, what I rendered from JSON 01",
+//       style: {
+//         border: "1px solid #ccc",
+//         borderRadius: "5px",
+//         padding: "20px",
+//       },
+//     },
+//     {
+//       id: "box-2",
+//       type: "span",
+//       content:
+//         "This is a dynamic span component, what I rendered from JSON 02",
+//       style: {
+//         border: "1px solid #ccc",
+//         borderRadius: "5px",
+//         padding: "20px",
+//       },
+//     },
+//   ],
+// },
