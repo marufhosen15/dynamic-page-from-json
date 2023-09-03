@@ -1,0 +1,15 @@
+{
+  "title": "About Page",
+  "path": "/about",
+  "status": "draft",
+  "content": "lorem ipsum dolor sit amet",
+  "type": "div",
+  "style": {},
+  "components": [
+    {
+      "type": "div",
+      "content": "This is a About Page, what I rendered from JSON",
+      "style": {}
+    }
+  ]
+}

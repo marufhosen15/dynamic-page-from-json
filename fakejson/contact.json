@@ -1,0 +1,15 @@
+{
+  "title": "Contact Page",
+  "path": "/contact",
+  "status": "draft",
+  "content": "lorem ipsum dolor sit amet",
+  "style": {},
+  "type": "div",
+  "components": [
+    {
+      "type": "div",
+      "content": "This is a contact Page, what I rendered from JSON",
+      "style": {}
+    }
+  ]
+}
