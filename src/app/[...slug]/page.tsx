@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const Page = ({ params }: any) => {
   const [pageContent, setPageContent] = useState<any>(null);
   const currentPath = `/${params.slug.join("/")}`;
-  // const { page, notfound }: any = renderedContent(currentPath);
+  // const { page, notfound }: any = renderedContent(currentPath);F
 
   useEffect(() => {
     const fetchData = async () => {
