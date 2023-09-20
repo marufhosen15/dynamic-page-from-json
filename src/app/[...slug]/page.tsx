@@ -1,26 +1,20 @@
-"use client";
-
-import { renderedContent } from "@/utils/pageContent";
 import { DynamicPage } from "../components/DynamicPage/DynamicPage";
-import { useEffect, useState } from "react";
 
-const Page = ({ params }: any) => {
-  const [pageContent, setPageContent] = useState<any>(null);
+async function getData(currentPath: string) {
+  const response = await fetch(
+    `http://localhost:3000/api/page-content?path=${currentPath}`
+  );
+  if (!response.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return response.json();
+}
+
+export default async function Page({ params }: any) {
   const currentPath = `/${params.slug.join("/")}`;
-  // const { page, notfound }: any = renderedContent(currentPath);F
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/api/page-content?path=${currentPath}`);
-        const data = await response.json();
-        setPageContent(data.data);
-      } catch (err) {
-        setPageContent(null);
-      }
-    };
-    fetchData();
-  }, [currentPath]);
+  const { data: pageContent } = await getData(currentPath);
 
   if (!pageContent) return <div>Page done not exist</div>;
   if (pageContent.status === "draft") return <div>Page is not published</div>;
@@ -32,6 +26,4 @@ const Page = ({ params }: any) => {
       </div>
     );
   }
-};
-
-export default Page;
+}
