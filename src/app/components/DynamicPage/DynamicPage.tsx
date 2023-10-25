@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ComponentData, DynamicPageData } from "@/type/type";
 import { useRouter } from "next/navigation";
